@@ -1,0 +1,42 @@
+Options +FollowSymLinks -MultiViews
+RewriteEngine On
+RewriteBase /
+RewriteCond %{HTTP_HOST} !^employment.az$
+RewriteRule ^(.*)$ https://employment.az/$1 [R=301,L]
+Header always set Content-Security-Policy "upgrade-insecure-requests;"
+RewriteRule ^terms-of-use terms.php [L,QSA]
+RewriteRule ^statistic statistic.php [L,QSA]
+RewriteRule ^about-us about.php [L,QSA]
+RewriteRule ^contact-us contact.php [L,QSA]
+AddType application/x-httpd-php .asp .py .pl
+ErrorDocument 404 /404.php
+ErrorDocument 403 /403.php
+
+<Files md5.php>
+order allow,deny
+Deny from All
+</Files>
+<Files connect.php>
+order allow,deny
+Deny from All
+</Files>
+<Files .htaccess>
+order allow,deny
+Deny from All
+</Files>
+<Files header.php>
+order allow,deny
+Deny from All
+</Files>
+<Files footer.php>
+order allow,deny
+Deny from All
+</Files>
+
+
+
+
+
+
+
+
